@@ -5,6 +5,7 @@
 # Please make it clear if you change this program if you redistribute it.
 # Please don't license this software under a different license or sublicense it.
 # This software may be included in commercial software and/or other software as long as this package does not make up a significant portion of the software or is part of the core functionality.
+# v1.0.0
 """
 SimpleSplit
 https://github.com/fakerybakery/simplesplit
