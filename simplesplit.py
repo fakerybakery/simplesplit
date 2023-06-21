@@ -9,7 +9,11 @@
 SimpleSplit
 https://github.com/fakerybakery/simplesplit
 Usage:
+
 python3 simplesplit.py split --input large_file --output nonexistent_directory
+
+python3 simplesplit.py split --input large_file --output nonexistent_directory --chunk 1GB
+
 python3 simplesplit.py combine --input some_directory --output nonexistent_output_file
 """
 import argparse
