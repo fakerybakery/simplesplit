@@ -5,6 +5,13 @@
 # Please make it clear if you change this program if you redistribute it.
 # Please don't license this software under a different license or sublicense it.
 # This software may be included in commercial software and/or other software as long as this package does not make up a significant portion of the software or is part of the core functionality.
+"""
+SimpleSplit
+https://github.com/fakerybakery/simplesplit
+Usage:
+python3 simplesplit.py split --input large_file --output nonexistent_directory
+python3 simplesplit.py combine --input some_directory --output nonexistent_output_file
+"""
 import argparse
 import os
 import sys
@@ -37,6 +44,9 @@ def split_binary_file(file_path, output_dir, chunk_size):
 def combine_chunks(directory, output_file):
     chunk_number = 0
     total_chunks = get_total_chunks(directory)
+    if total_chunks == 0:
+        print(f'Error: {directory} is not a SimpleSplit directory!')
+        sys.exit(0)
     with open(output_file, 'wb') as file:
         pbar = tqdm(total=total_chunks, unit='chunk')
         while chunk_number < total_chunks:
