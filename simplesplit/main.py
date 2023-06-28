@@ -6,7 +6,6 @@
 # Please don't license this software under a different license or sublicense it.
 # This software may be included in commercial software and/or other software as long as this package does not make up a significant portion of the software or is part of the core functionality.
 # THE LICENSE AND ANY ASSOCIATED SOFTWARE, DOCUMENTATION, OR SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. THE ENTIRE RISK ARISING OUT OF THE USE OR PERFORMANCE OF THE LICENSE, SOFTWARE, DOCUMENTATION, OR SERVICES REMAINS WITH THE LICENSEE. IN NO EVENT SHALL THE LICENSOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THE LICENSE, SOFTWARE, DOCUMENTATION, OR SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# v1.0.0
 """
 SimpleSplit
 https://github.com/fakerybakery/simplesplit
@@ -23,7 +22,7 @@ import os
 import sys
 from tqdm import tqdm
 
-
+version = '1.1.0'
 def split_binary_file(file_path, output_dir, chunk_size):
     if os.path.isdir(output_dir):
         print(f"Error: {output_dir} already exists!")
@@ -84,6 +83,9 @@ def main():
     parser = argparse.ArgumentParser(prog='simplesplit', description='Split and re-combine large binary files')
     subparsers = parser.add_subparsers(dest='command', required=True)
 
+    split_parser = subparsers.add_parser('license', help='View the SimpleSplit Open Source Permissive License')
+    split_parser = subparsers.add_parser('version', help='Check the version')
+
     split_parser = subparsers.add_parser('split', help='Split a binary file')
     split_parser.add_argument('--input', metavar='FILE', required=True, help='File to split')
     split_parser.add_argument('--output', metavar='DIRECTORY', required=True, help='Output directory')
@@ -104,6 +106,14 @@ def main():
         directory = args.input
         output_file = args.output
         combine_chunks(directory, output_file)
+    elif args.command == 'version':
+        print(f"SimpleSplit v{version}. Update using 'pip3 install -U SimpleSplit'")
+    elif args.command == 'license':
+        print('Feel free to bundle this into your software, but please leave the in-code attribution.')
+        print('Please make it clear if you change this program if you redistribute it.')
+        print('Please don\'t license this software under a different license or sublicense it.')
+        print('This software may be included in commercial software and/or other software as long as this package does not make up a significant portion of the software or is part of the core functionality.')
+        print('THE LICENSE AND ANY ASSOCIATED SOFTWARE, DOCUMENTATION, OR SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. THE ENTIRE RISK ARISING OUT OF THE USE OR PERFORMANCE OF THE LICENSE, SOFTWARE, DOCUMENTATION, OR SERVICES REMAINS WITH THE LICENSEE. IN NO EVENT SHALL THE LICENSOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THE LICENSE, SOFTWARE, DOCUMENTATION, OR SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.')
 
 
 def parse_size(size_str):
