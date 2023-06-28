@@ -2,28 +2,45 @@
 
 ## Installation
 
+### `NEW` Automatic
+
+SimpleSplit is now on PyPi!
+
+To install, simply run:
+
+```
+pip install SimpleSplit
+```
+
+### Manual
+
+1. Clone this repository
+2. Run the following script:
+
 ```
 pip3 install -r requirements.txt
 ```
+
+Note that the installation will not be global. You'll have to manually use `simplesplit.py`. So instead of running `simplesplit split...`, run `python3 simplesplit/main.py split...`.
 
 ## Usage
 
 Split a file:
 
 ```
-python3 simplesplit.py split --input large_file --output nonexistent_directory
+simplesplit split --input large_file --output nonexistent_directory
 ```
 
 Split file with a 1GB chunk size:
 
 ```
-python3 simplesplit.py split --input large_file --output nonexistent_directory --chunk 1GB
+simplesplit split --input large_file --output nonexistent_directory --chunk 1GB
 ```
 
 Combine a file:
 
 ```
-python3 simplesplit.py combine --input some_directory --output nonexistent_output_file
+simplesplit combine --input some_directory --output nonexistent_output_file
 ```
 
 ## License
