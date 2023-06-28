@@ -21,8 +21,8 @@ setup(
     },
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: SOSP License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.9",
+    platforms=["Any"],
 )
