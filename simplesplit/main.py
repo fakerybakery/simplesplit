@@ -22,7 +22,7 @@ import os
 import sys
 from tqdm import tqdm
 
-version = '1.1.0'
+version = '0.1.1'
 def split_binary_file(file_path, output_dir, chunk_size):
     if os.path.isdir(output_dir):
         print(f"Error: {output_dir} already exists!")

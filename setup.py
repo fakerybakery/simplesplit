@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="SimpleSplit",
-    version="0.1.0",
+    version="0.1.1",
     author="GitHub @fakerybakery",
     author_email="me@mrfake.name",
     description="Split and re-combine large binary files",
